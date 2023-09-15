@@ -4,6 +4,8 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { IoBookOutline } from "react-icons/io5";
 import PropTypes from "prop-types";
 import Bookmark from "../Bookmark/Bookmark";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Card = () => {
   // useState for card data
@@ -20,7 +22,25 @@ const Card = () => {
   }, []);
 
   const handleSelect = (card) => {
-    setselectedCard([...selectedCard, card]);
+
+    const isExist = selectedCard.find((item) => item.id === card.id);
+    if (isExist) {
+      toast.warn('Already Added this course.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    } else {
+      setselectedCard([...selectedCard, card]);
+    }
+
+
+
     
   }
   
@@ -53,6 +73,7 @@ const Card = () => {
               <button onClick={()=>handleSelect(card)} className="text-lg font-semibold text-white bg-[#2F80ED] rounded-lg px-20 py-2">
                 Select
               </button>
+              <ToastContainer />
             </div>
           </div>
         ))}
