@@ -47,8 +47,8 @@ const Bookmark = ({selectedCard}) where selectedCard is sent as a props and get 
 
 ○ In Cart.jsx, line no.18,
    // useState for total remaining credit
-  const [totalRemainingCredit, setTotalRemainingCredit] = useState(0);
-  This is for remaining credit. The initial credit is 0 and set total remaining credit is set to 0. The value will be updated and it is passed to Bookmark.jsx for showing data in ui
+  const [totalRemainingCredit, setTotalRemainingCredit] = useState(20);
+  This is for remaining credit. The initial credit is 20 and set total remaining credit is set to 20. The value will be updated and it is passed to Bookmark.jsx for showing data in ui
 
 ○ In Cart.jsx, line no 21
  // useState for total credit

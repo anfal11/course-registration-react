@@ -15,7 +15,7 @@ const Card = () => {
   const [selectedCard, setselectedCard] = useState([]);
 
   // useState for total remaining credit
-  const [totalRemainingCredit, setTotalRemainingCredit] = useState(0);
+  const [totalRemainingCredit, setTotalRemainingCredit] = useState(20);
 
   // useState for total credit
   const [totalCredit, setTotalCredit] = useState(0);
@@ -60,7 +60,7 @@ const Card = () => {
         setselectedCard([...selectedCard, card]);
       } else {
         return toast.error(
-          `You can't add more than 20 credits and your remianing hour is 0`,
+          "Your remaining credit limit has exceeded and can't be less than 0.",
           {
             position: "top-right",
             autoClose: 5000,
