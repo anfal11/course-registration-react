@@ -4,8 +4,8 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { IoBookOutline } from "react-icons/io5";
 import PropTypes from "prop-types";
 import Bookmark from "../Bookmark/Bookmark";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = () => {
   // useState for card data
@@ -23,23 +23,19 @@ const Card = () => {
   // useState for total price
   const [totalPrice, setTotalPrice] = useState(0);
 
-
-  
-  
   // useEffect for fetching data
   useEffect(() => {
-    fetch("../../../public/info.json")
+    fetch("info.json")
       .then((res) => res.json())
       .then((data) => setCard(data));
   }, []);
 
   const handleSelect = (card) => {
-
     let totalCredit = card.credit;
     let totalPrice = card.price;
     const isExist = selectedCard.find((item) => item.id === card.id);
     if (isExist) {
-      return toast.warn('Already Added this course.', {
+      return toast.warn("Already Added this course.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -48,40 +44,37 @@ const Card = () => {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
-        
-
+      });
     } else {
-     
       selectedCard.forEach((item) => {
         totalCredit = totalCredit + item.credit;
-        
       });
       selectedCard.forEach((item) => {
         totalPrice = totalPrice + item.price;
       });
       const totalRemainingCredit = 20 - totalCredit;
-      if (totalRemainingCredit >= 0 && totalCredit <= 20){
+      if (totalRemainingCredit >= 0 && totalCredit <= 20) {
         setTotalRemainingCredit(totalRemainingCredit);
         setTotalCredit(totalCredit);
         setTotalPrice(totalPrice);
         setselectedCard([...selectedCard, card]);
       } else {
-        return toast.error('You can not add more than 20 credits and your remianing hour is 0', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "colored",
-          progress: undefined,
-          });
+        return toast.error(
+          `You can't add more than 20 credits and your remianing hour is 0`,
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "colored",
+            progress: undefined,
+          }
+        );
       }
-
     }
-  }
-  
+  };
 
   return (
     <div className="lg:flex md:justify-around mx-auto pb-8">
@@ -108,7 +101,10 @@ const Card = () => {
               </div>
             </div>
             <div className="flex justify-center mb-4 mt-7">
-              <button onClick={()=>handleSelect(card)} className="text-lg font-semibold text-white bg-[#2F80ED] rounded-lg px-20 py-2">
+              <button
+                onClick={() => handleSelect(card)}
+                className="text-lg font-semibold text-white bg-[#2F80ED] rounded-lg px-20 py-2"
+              >
                 Select
               </button>
               <ToastContainer />
@@ -118,7 +114,12 @@ const Card = () => {
       </div>
 
       <div>
-          <Bookmark selectedCard = {selectedCard} totalRemainingCredit = {totalRemainingCredit} totalCredit = {totalCredit} totalPrice={totalPrice}></Bookmark>
+        <Bookmark
+          selectedCard={selectedCard}
+          totalRemainingCredit={totalRemainingCredit}
+          totalCredit={totalCredit}
+          totalPrice={totalPrice}
+        ></Bookmark>
       </div>
     </div>
   );
