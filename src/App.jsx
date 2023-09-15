@@ -5,12 +5,6 @@ import Header from "./Components/Header"
 
 function App() {
 
-       // state for loading
-       // const [loading, setLoading] = useState(false)
-       // state for error
-       // const [error, setError] = useState(null)
-
-
   return (
 
 

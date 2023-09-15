@@ -52,3 +52,6 @@ const Bookmark = ({selectedCard}) where selectedCard is sent as a props and get 
   const [totalCredit, setTotalCredit] = useState(0); 
   This is for Total credit. The initial credit is 0 and set total total credit is set to 0. The value will be updated and it is passed to Bookmark.jsx for showing data in ui. 
 
+6. In Cart.jsx, line no 55-70,
+now the conditional rendering is done where the credit is calculated and the total credit is calculated from the total remaining credit and set total remaining credit is set to 0 and set total remaining credit.
+

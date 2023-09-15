@@ -19,6 +19,8 @@ const Card = () => {
 
   // useState for total credit
   const [totalCredit, setTotalCredit] = useState(0);
+
+
   
   
   // useEffect for fetching data
@@ -49,17 +51,27 @@ const Card = () => {
      
       selectedCard.forEach((item) => {
         totalCredit = totalCredit + item.credit;
-        setTotalCredit(totalCredit);
+        
       });
       const totalRemainingCredit = 20 - totalCredit;
-      setTotalCredit(totalCredit);
-      setTotalRemainingCredit(totalRemainingCredit);
-      setselectedCard([...selectedCard, card]);
+      if (totalRemainingCredit >= 0 && totalCredit <= 20){
+        setTotalRemainingCredit(totalRemainingCredit);
+        setTotalCredit(totalCredit);
+        setselectedCard([...selectedCard, card]);
+      } else {
+        return toast.error('You can not add more than 20 credits and your remianing hour is 0', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+          progress: undefined,
+          });
+      }
+
     }
-
-
-
-    
   }
   
 

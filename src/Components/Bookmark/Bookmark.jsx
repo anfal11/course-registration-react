@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Bookmark = ({selectedCard, totalRemainingCredit , totalCredit}) => {
+const Bookmark = ({selectedCard, totalRemainingCredit , totalCredit , totalPrice}) => {
 
     return (
         <div className="bg-[#1111110d] p-7 rounded-lg">
@@ -25,7 +25,7 @@ const Bookmark = ({selectedCard, totalRemainingCredit , totalCredit}) => {
        
           Total Credit Hour : {totalCredit}
         </h3>
-        <h3 className="text-base font-semibold mb-5"> Total Price : USD </h3>
+        <h3 className="text-base font-semibold mb-5"> Total Price : {totalPrice} USD </h3>
       </div>
     );
 };
@@ -33,7 +33,8 @@ const Bookmark = ({selectedCard, totalRemainingCredit , totalCredit}) => {
 Bookmark.propTypes = {
     selectedCard: PropTypes.array,
     totalRemainingCredit: PropTypes.number,
-    totalCredit: PropTypes.number
+    totalCredit: PropTypes.number,
+    totalPrice: PropTypes.number,
 }
 
 export default Bookmark;
