@@ -41,3 +41,14 @@
 
 3. In Bookmark.jsx, line 3,
 const Bookmark = ({selectedCard}) where selectedCard is sent as a props and get the data by mapping.
+
+4. In Cart.jsx, line no.18,
+   // useState for total remaining credit
+  const [totalRemainingCredit, setTotalRemainingCredit] = useState(0);
+  This is for remaining credit. The initial credit is 0 and set total remaining credit is set to 0. The value will be updated and it is passed to Bookmark.jsx for showing data in ui
+
+5. In Cart.jsx, line no 21
+ // useState for total credit
+  const [totalCredit, setTotalCredit] = useState(0); 
+  This is for Total credit. The initial credit is 0 and set total total credit is set to 0. The value will be updated and it is passed to Bookmark.jsx for showing data in ui. 
+

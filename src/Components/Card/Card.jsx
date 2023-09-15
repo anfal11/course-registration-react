@@ -13,6 +13,13 @@ const Card = () => {
 
   // useState for selected card to use spread operator for copying cards
   const [selectedCard, setselectedCard] = useState([]);
+
+  // useState for total remaining credit
+  const [totalRemainingCredit, setTotalRemainingCredit] = useState(0);
+
+  // useState for total credit
+  const [totalCredit, setTotalCredit] = useState(0);
+  
   
   // useEffect for fetching data
   useEffect(() => {
@@ -23,9 +30,10 @@ const Card = () => {
 
   const handleSelect = (card) => {
 
+    let totalCredit = card.credit;
     const isExist = selectedCard.find((item) => item.id === card.id);
     if (isExist) {
-      toast.warn('Already Added this course.', {
+      return toast.warn('Already Added this course.', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -35,7 +43,17 @@ const Card = () => {
         progress: undefined,
         theme: "colored",
         });
+        
+
     } else {
+     
+      selectedCard.forEach((item) => {
+        totalCredit = totalCredit + item.credit;
+        setTotalCredit(totalCredit);
+      });
+      const totalRemainingCredit = 20 - totalCredit;
+      setTotalCredit(totalCredit);
+      setTotalRemainingCredit(totalRemainingCredit);
       setselectedCard([...selectedCard, card]);
     }
 
@@ -80,7 +98,7 @@ const Card = () => {
       </div>
 
       <div>
-          <Bookmark selectedCard = {selectedCard}></Bookmark>
+          <Bookmark selectedCard = {selectedCard} totalRemainingCredit = {totalRemainingCredit} totalCredit = {totalCredit}></Bookmark>
       </div>
     </div>
   );
