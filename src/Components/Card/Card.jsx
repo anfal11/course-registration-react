@@ -20,6 +20,9 @@ const Card = () => {
   // useState for total credit
   const [totalCredit, setTotalCredit] = useState(0);
 
+  // useState for total price
+  const [totalPrice, setTotalPrice] = useState(0);
+
 
   
   
@@ -33,6 +36,7 @@ const Card = () => {
   const handleSelect = (card) => {
 
     let totalCredit = card.credit;
+    let totalPrice = card.price;
     const isExist = selectedCard.find((item) => item.id === card.id);
     if (isExist) {
       return toast.warn('Already Added this course.', {
@@ -53,10 +57,14 @@ const Card = () => {
         totalCredit = totalCredit + item.credit;
         
       });
+      selectedCard.forEach((item) => {
+        totalPrice = totalPrice + item.price;
+      });
       const totalRemainingCredit = 20 - totalCredit;
       if (totalRemainingCredit >= 0 && totalCredit <= 20){
         setTotalRemainingCredit(totalRemainingCredit);
         setTotalCredit(totalCredit);
+        setTotalPrice(totalPrice);
         setselectedCard([...selectedCard, card]);
       } else {
         return toast.error('You can not add more than 20 credits and your remianing hour is 0', {
@@ -110,7 +118,7 @@ const Card = () => {
       </div>
 
       <div>
-          <Bookmark selectedCard = {selectedCard} totalRemainingCredit = {totalRemainingCredit} totalCredit = {totalCredit}></Bookmark>
+          <Bookmark selectedCard = {selectedCard} totalRemainingCredit = {totalRemainingCredit} totalCredit = {totalCredit} totalPrice={totalPrice}></Bookmark>
       </div>
     </div>
   );
