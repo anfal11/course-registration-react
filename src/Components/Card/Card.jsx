@@ -26,7 +26,7 @@ const Card = () => {
   
 
   return (
-    <div className="lg:flex md:justify-around mx-auto">
+    <div className="lg:flex md:justify-around mx-auto pb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:w-2/3">
         {card.map((card) => (
           <div className="bg-white rounded-xl flex flex-col" key={card.id}>
