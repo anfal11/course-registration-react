@@ -89,13 +89,13 @@ const Card = () => {
             <div className="flex justify-between mt-4">
               <div className="flex gap-3 items-center ml-4">
                 <BsCurrencyDollar />
-                <p className="font-medium text-xs text-[#1c1b1b99]">
+                <p className="font-medium text-base text-[#1c1b1b99]">
                   Price: {card.price}
                 </p>
               </div>
               <div className="flex gap-3 items-center mr-5">
                 <IoBookOutline />
-                <p className="font-medium text-xs text-[#1c1b1b99]">
+                <p className="font-medium text-base text-[#1c1b1b99]">
                   Credit: {card.credit}hr
                 </p>
               </div>
