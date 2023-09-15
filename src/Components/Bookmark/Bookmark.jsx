@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const Bookmark = ({selectedCard, totalRemainingCredit , totalCredit , totalPrice}) => {
 
     return (
-        <div className="bg-[#1111110d] p-7 rounded-lg">
+        <div className="bg-white p-7 rounded-lg">
         <h2 className="text-[#2F80ED] text-lg font-bold border-b-2 border-[#1c1b1b33] pb-4">
           
           Credit Hour Remaining {totalRemainingCredit}  hr
