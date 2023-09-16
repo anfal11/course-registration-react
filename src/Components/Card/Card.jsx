@@ -53,14 +53,14 @@ const Card = () => {
         totalPrice = totalPrice + item.price;
       });
       const totalRemainingCredit = 20 - totalCredit;
-      if (totalRemainingCredit >= 0 && totalCredit <= 20) {
+      if (totalRemainingCredit >= 0 || totalCredit <= 20) {
         setTotalRemainingCredit(totalRemainingCredit);
         setTotalCredit(totalCredit);
         setTotalPrice(totalPrice);
         setselectedCard([...selectedCard, card]);
       } else {
         return toast.error(
-          "Your remaining credit limit has exceeded and can't be less than 0.",
+          "You can't add more than 20 credits & your remaining credit will be " + totalRemainingCredit + ". ",
           {
             position: "top-right",
             autoClose: 5000,
