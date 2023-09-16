@@ -21,7 +21,7 @@
   // useEffect hook for fetching data
   
   useEffect(() => {
-    fetch("../../../public/info.json")
+    fetch("info.json")
       .then((res) => res.json())
       .then((data) => setCard(data));
   }, []);
